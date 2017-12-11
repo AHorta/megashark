@@ -44,22 +44,36 @@
     <table>
         <thead>
         <tr>
-            <th scope="col">L</th>
-            <th scope="col">M</th>
-            <th scope="col">M</th>
-            <th scope="col">J</th>
-            <th scope="col">V</th>
-            <th scope="col">S</th>
-            <th scope="col">D</th>
+            <th scope="col">Lun</th>
+            <th scope="col">Mar</th>
+            <th scope="col">Mer</th>
+            <th scope="col">Jeu</th>
+            <th scope="col">Vend</th>
+            <th scope="col">Sam</th>
+            <th scope="col">Dim</th>
         </tr>
         </thead>
-        <?php foreach ($showtimes as $showtime): ?>
-            <tr>
-                <td><?= h($showtime->movie->name ) ?></td>
-                <td><?= h($showtime->movie->duration ) ?></td>
-                <td><?= h($showtime->start ) ?></td>
-                <td><?= h($showtime->end ) ?></td>
-            </tr>
+        <tr>
+    
+    
+   <?php for($i=1;$i<=7;$i++){?>
+   <td>
+    <table>
+        <?php foreach ($showtimes as $showtime): 
+        
+        $test = ($showtime->start)->format('N');
+        if ($test==$i){?>
+          <tr>
+            <td>Nom = <?= h($showtime->movie->name ) ?><br>
+            Duree = <?= h($showtime->movie->duration ) ?> min<br>
+          </tr>
+        <?php }?>
         <?php endforeach;  ?>
+    </table>
+    </td> 
+    <?php } ?>
+    
+   
+    </td>
     </table>
 </div>

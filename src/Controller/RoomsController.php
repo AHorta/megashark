@@ -36,10 +36,7 @@ class RoomsController extends AppController
      */
     public function view($id = null)
     {
-       $room = $this->Rooms->get($id, [
-            'contain' => [
-            ]
-        ]);
+        $room = $this->Rooms->get($id, ['contain' => []]);
         $showtimes = $this
             ->Rooms
             ->Showtimes
